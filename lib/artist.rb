@@ -1,3 +1,5 @@
+require "pry"
+
 class Artist
 
     attr_accessor :name, :songs
@@ -8,8 +10,8 @@ class Artist
     end
 
     def add_song(record)
-        song = Song.new(record)
-        song.artist = self
+        record.artist = self
+        @songs << record if !@songs.include?(record)
     end
 
     def add_song_by_name(record)

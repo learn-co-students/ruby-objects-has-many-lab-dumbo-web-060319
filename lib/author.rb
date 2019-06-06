@@ -1,3 +1,5 @@
+require "pry"
+
 class Author
 
     attr_accessor :name, :posts
@@ -8,12 +10,13 @@ class Author
     end
 
     def add_post(article)
-        post = post.new(article)
-        post.artist = self
+        # binding.pry
+        article.author = self
+        @posts << article if !@posts.include?(article)
     end
 
-    def add_post_by_name(article)
-        post = post.new(article)
+    def add_post_by_title(article)
+        post = Post.new(article)
         @posts << post
         post.author = self
     end
